@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green Habit Tracker</title>
+  <link rel="stylesheet" href="style5.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="toggle-container">
+    <button id="themeToggle" class="toggle-btn">🌙 Dark Mode</button>
+  </div>
+
+  <div class="grid-container">
+    <div class="left-pane">
+      <h1>🌿 Green Habit Tracker</h1>
+      <p class="subtitle">Track your eco-friendly actions and see your impact!</p>
+      <div id="habit-list" class="habit-list">
+        <label><input type="checkbox" value="1"> ♻️ Carried a cloth bag</label>
+        <label><input type="checkbox" value="1"> 🚫 Skipped plastic</label>
+        <label><input type="checkbox" value="1"> 💡 Turned off unused lights</label>
+        <label><input type="checkbox" value="1"> 🚌 Used public transport</label>
+        <label><input type="checkbox" value="1"> 🥤 Used a reusable cup</label>
+        <label><input type="checkbox" value="1"> 📦 Avoided plastic packaging</label>
+        <label><input type="checkbox" value="1"> 🌱 Planted a sapling</label>
+        <label><input type="checkbox" value="1"> 🗑️ Segregated waste</label>
+      </div>
+      <button onclick="calculateImpact()">✅ Submit</button>
+      <button onclick="resetDay()" class="reset">📅 Start New Day</button>
+      <button onclick="clearHistory()" class="reset" style="background: #D32F2F;">🗑️ Clear History</button>
+    </div>
+
+    <div class="right-pane">
+      <div class="results">
+        <p>🍃 <strong>Habits Completed:</strong> <span id="count">0</span> / 8</p>
+        <p>🌍 <strong>CO₂ Saved:</strong> <span id="co2">0</span> kg</p>
+        <p>🔥 <strong>Current Streak:</strong> <span id="streak">0</span> days</p>
+        <p>📅 <strong>Start Month:</strong> <span id="month">July</span> Year: <span id="year">2025</span></p>
+        <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+      </div>
+
+      <div class="chart-switch">
+        <button onclick="showChart('weekly')">📅 Weekly</button>
+        <button onclick="showChart('monthly')">📆 Monthly</button>
+        <button onclick="showChart('yearly')">📊 Yearly</button>
+      </div>
+
+      <canvas id="weeklyChart"></canvas>
+      <canvas id="monthlyChart" style="display:none;"></canvas>
+      <canvas id="yearlyChart" style="display:none;"></canvas>
+      <canvas id="habitChart"></canvas>
+
+      <div class="badge-section">
+        <h3>🏅 Your Current Badge</h3>
+        <div id="badgeDisplay" class="badge-card">
+          <img id="badgeIcon" src="https://cdn-icons-png.flaticon.com/512/3105/3105791.png" alt="Badge Icon">
+          <p id="badgeText">No badge yet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
